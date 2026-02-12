@@ -4,6 +4,7 @@ import { pageTemplate } from "../utils/pageTemplate.js";
 
 export const generateMultipagePDF = async (html) => {
   const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     headless:"new"
   })
 
