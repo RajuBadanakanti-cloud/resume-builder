@@ -16,7 +16,10 @@ app.use(helmet())
 
 // frontend + backend origins conections >>
 app.use(cors({
-    origin:"https://resume-builder-rb-cloud.vercel.app",
+    origin: [
+        "http://localhost:5173",
+        "https://resume-builder-rb-cloud.vercel.app"
+    ],
     credentials:true // imp
 }))
 
