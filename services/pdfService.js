@@ -1,5 +1,5 @@
-import puppeteer from "puppeteer";
-import puppeteer from "puppeteer-core"
+// import puppeteer from "puppeteer"; // local
+import puppeteer from "puppeteer-core" // production
 import chromium from "@sparticuz/chromium" // production
 
 import { loadTailwindCSS } from "../utils/loadCss.js"
