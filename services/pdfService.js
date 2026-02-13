@@ -1,16 +1,19 @@
 import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core"
+import chromium from "@sparticuz/chromium" // production
+
 import { loadTailwindCSS } from "../utils/loadCss.js"
 import { pageTemplate } from "../utils/pageTemplate.js";
 
 export const generateMultipagePDF = async (html) => {
   const browser = await puppeteer.launch({
-    headless:"new",
-      args: [
-    "--no-sandbox",
-    "--disable-setuid-sandbox",
-    "--disable-dev-shm-usage",
-    "--disable-gpu",
-  ],
+    // ---------
+    args: [...chromium.args, "--no-sandbox"],
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(),
+    // above all production
+    headless: chromium.headless,
+
   })
 
   const page = await browser.newPage() 
