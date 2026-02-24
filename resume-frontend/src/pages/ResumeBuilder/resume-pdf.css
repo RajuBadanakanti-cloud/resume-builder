@@ -1,0 +1,19 @@
+/* ONLY for PDF generation */
+
+/* Override Tailwind text colors */
+.resume-pdf .text-blue-950 {
+  color: #0a2662 !important;
+}
+
+.resume-pdf .text-blue-500 {
+  color: #3b80e2 !important;
+}
+
+/* Override background colors */
+.resume-pdf .bg-gray-500 {
+  background-color: #2563eb !important;
+}
+
+.resume-pdf .bg-gray-100 {
+  background-color: #f3f4f6 !important;
+}

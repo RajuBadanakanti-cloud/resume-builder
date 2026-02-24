@@ -1,0 +1,66 @@
+@import "tailwindcss";
+/*  ---------------------------------- */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+
+/* ===== PDF SAFE OVERRIDES ===== */
+
+/* text colors */
+.pdf-safe .text-blue-950 {
+  color: rgb(26, 43, 97) !important;
+}
+
+.pdf-safe .text-blue-500 {
+  color: rgb(100, 132, 235) !important;
+}
+
+.pdf-safe .text-gray-900 {
+  color: rgb(52, 52, 54) !important;
+}
+
+
+.pdf-safe .text-green-800 {
+  color: rgb(22, 101, 52) !important;
+}
+
+.pdf-safe .text-black {
+  color: rgb(0, 0, 0) !important;
+}
+
+/* background colors */
+.pdf-safe.bg-white,
+.pdf-safe .bg-white {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+/* borders / hr */
+.pdf-safe hr {
+  border-color: rgb(0, 0, 0) !important;
+}
+
+/*  icons  */
+.pdf-safe svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
