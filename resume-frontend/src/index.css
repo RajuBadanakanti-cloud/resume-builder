@@ -64,3 +64,16 @@ body {
   display: inline-block !important;
   vertical-align: middle !important;
 }
+
+/* ********************** Password Icon rvels eye button avoiding ---------------------- */
+/* Hide Edge password reveal icon */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/* For Chromium Edge */
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-password-reveal-button {
+  display: none;
+}

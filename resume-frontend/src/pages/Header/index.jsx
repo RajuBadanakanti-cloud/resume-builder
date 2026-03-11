@@ -44,7 +44,7 @@ const Header  = () => {
 
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    const profileLogo = user ? user.name[0].toUpperCase() : "U"
+    const profileLogo =  "U"
 
     const isAbleLogin = user ? false : true
     const IsAbleLogout = user ? true : false

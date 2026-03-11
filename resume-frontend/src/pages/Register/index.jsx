@@ -1,12 +1,14 @@
 import { useState } from "react"
 import {Link, useNavigate} from "react-router-dom"
-import { CircleDashed } from "lucide-react"
+import {CircleDashed, Eye, EyeOff } from "lucide-react";
 
 const Register  = () => {
     const [name, setName] = useState("")
     const [age, setAge]  = useState(5)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [showPassword, setShowPassword] = useState(false) // show/hide password
+
 
     const [isLoading, setIsLoading] = useState(false)
     const [errorMsg, setErrMag] = useState("")
@@ -60,32 +62,37 @@ const Register  = () => {
             <section className="w-full flex flex-col justify-center items-start mb-4 md:mb-5">
             <label htmlFor="nameInp" className="text-emerald-900 font-bold text-[12px] md:text-base mb-2">Full Name</label>
             <input id="nameInp" type="text" minLength={3} maxLength={40} placeholder="ex: Sachin Tendulter" value={name} onChange={(event) => setName(event.target.value)}
-            className="h-10 md:h-12 w-full bg-emerald-100 rounded-lg p-3 text-emerald-900 text-[12px] md:text-base 
-            hover:border-2 border-emerald-500 transition-all duration-400"/>
+            className="h-10 md:h-12 w-full bg-emerald-100 rounded-lg p-3 text-emerald-900 text-[12px] md:text-base outline-none
+            focus:ring-1 focus:ring-green-500  transition-all duration-400"/>
             </section>
 
             {/* Date of Birth Section  */}    
             <section className="w-full flex flex-col justify-center items-start mb-4 md:mb-5">
             <label htmlFor="ageInp"  className="text-emerald-900 font-bold text-[12px] md:text-base mb-2">Age</label>
             <input id="ageInp" type="number" min={5} placeholder="Enter Your age"  value={age} onChange={(event) => setAge(event.target.value)}
-            className="h-10 md:h-12 w-full bg-emerald-100 rounded-lg p-3 text-emerald-900 text-[12px] md:text-base 
-            hover:border-2 border-emerald-500 transition-all duration-400"/>
+            className="h-10 md:h-12 w-full bg-emerald-100 rounded-lg p-3 text-emerald-900 text-[12px] md:text-base outline-none
+            focus:ring-1 focus:ring-green-500  transition-all duration-400"/>
             </section>
 
             {/* Email Section */}    
             <section className="w-full flex flex-col justify-center items-start mb-4 md:mb-5">
             <label htmlFor="emailInp" className="text-emerald-900 font-bold text-[12px] md:text-base mb-2">Email</label>
             <input id="emailInp" type="email"  maxLength={60} placeholder="ex: example@gmail.com" value={email} onChange={(event) => setEmail(event.target.value)}
-            className="h-10 md:h-12 w-full bg-emerald-100 rounded-lg p-3 text-emerald-900 text-[12px] md:text-base 
-            hover:border-2 border-emerald-500 transition-all duration-400"/>
+            className="h-10 md:h-12 w-full bg-emerald-100 rounded-lg p-3 text-emerald-900 text-[12px] md:text-base outline-none
+            focus:ring-1 focus:ring-green-500 transition-all duration-400"/>
             </section>
 
             {/* Password Section  */}    
             <section className="w-full flex flex-col justify-center items-start mb-4 md:mb-5">
             <label htmlFor="passwordInp" className="text-emerald-900 font-bold text-[12px] md:text-base mb-2">Password</label>
-            <input id="passwordInp" type="password" minLength={6} placeholder="Must be 6 characters" value={password} onChange={(event) => setPassword(event.target.value)}
-            className="h-10 md:h-12 w-full bg-emerald-100 rounded-lg p-3 text-emerald-900 text-[12px] md:text-base 
-            hover:border-2 border-emerald-500 transition-all duration-400"/>
+            <div className="group h-10 md:h-12 w-full bg-emerald-100 rounded-lg p-2 flex justify-center items-center
+             transition-all duration-400 focus-within:ring-1 focus-within:ring-green-500">
+            <input id="passwordInp" type={`${showPassword ? "text" : "password"}`} minLength={6} placeholder="Must be 6 characters" value={password} onChange={(event) => setPassword(event.target.value)}
+            className="h-10 md:h-12 w-full bg-transparent text-emerald-900 text-[12px] md:text-base outline-none"/>
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="">
+                {showPassword ? <EyeOff className="h-4 w-4 md:h-5 md:w-5 text-emerald-900"/> : <Eye className="h-4 w-4 md:h-5 md:w-5 text-emerald-900"/>}
+            </button>
+            </div>
             </section>
 
             <p className="text-sm text-red-600">{errorMsg}</p>
